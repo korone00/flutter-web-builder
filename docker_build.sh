@@ -5,10 +5,17 @@ if [ $? = 1 ]; then
         exit
 fi
 
+OS_ARCH=`arch`
+if [ $OS_ARCH = "arm64" ]; then
+	VERSION="latest-$OS_ARCH"
+else
+	VERSION="latest"
+fi
+
 docker buildx build \
 --no-cache \
 --push \
---tag korone/flutter-web-builder:latest .
+--tag korone/flutter-web-builder:$VERSION .
 
 #docker buildx build \
 #--no-cache \
