@@ -22,5 +22,6 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
+        platform: linux/amd64,linux/arm64/v8
         push: true
         tags: korone/flutter-web-builder:latest
